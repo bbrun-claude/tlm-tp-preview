@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLM Travaux Publics — Terrassement, VRD & Enrobé | Viviers (07)</title>
+    <meta name="description" content="TLM Travaux Publics à Viviers (07) : terrassement, enrobé, pavage, VRD, viabilisation, débroussaillage mécanique. Devis gratuit au 04 75 52 77 47.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --noir: #1a1a1a;
+            --rouge: #c41e1e;
+            --rouge-clair: #e63333;
+            --jaune: #f5b800;
+            --gris-fonce: #2d2d2d;
+            --gris: #555;
+            --gris-clair: #f0f0f0;
+            --blanc: #ffffff;
+        }
+        body { font-family: 'Inter', sans-serif; color: var(--noir); line-height: 1.6; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--rouge); text-decoration: none; }
+        a:hover { color: var(--rouge-clair); }
+
+        /* HEADER */
+        .header {
+            background: var(--noir);
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-logo { height: 50px; }
+        .header nav a {
+            color: var(--blanc);
+            margin-left: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        .header nav a:hover { color: var(--jaune); }
+        .header .tel-btn {
+            background: var(--rouge);
+            color: var(--blanc);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 1.5rem;
+        }
+        .header .tel-btn:hover { background: var(--rouge-clair); color: var(--blanc); }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('img/chantier8.jpg') center/cover no-repeat;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.5) 60%, rgba(196,30,30,0.3) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 2rem 4rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--blanc);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 span { color: var(--jaune); }
+        .hero-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: var(--rouge);
+            color: var(--blanc);
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .hero-cta:hover { background: var(--rouge-clair); transform: translateY(-2px); color: var(--blanc); }
+
+        /* SECTION COMMON */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--noir);
+            margin-bottom: 0.5rem;
+        }
+        .section-title .bar {
+            width: 60px;
+            height: 4px;
+            background: var(--rouge);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* SERVICES */
+        .services { background: var(--gris-clair); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--blanc);
+            padding: 2rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--noir);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+        .service-icon svg { width: 26px; height: 26px; fill: var(--jaune); }
+        .service-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--noir);
+        }
+        .service-card p { font-size: 0.9rem; color: var(--gris); line-height: 1.5; }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .about-text p { color: var(--gris); margin-bottom: 1rem; }
+        .about-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .about-badges img { height: 70px; border-radius: 6px; }
+
+        /* REALISATIONS */
+        .realisations { background: var(--noir); color: var(--blanc); }
+        .realisations .section-title h2 { color: var(--blanc); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item {
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/3;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* EQUIPEMENTS */
+        .equip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .equip-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+            color: var(--gris);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .equip-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--rouge);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* CONTACT */
+        .contact { background: var(--gris-clair); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .contact-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-item-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--rouge);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-item-icon svg { width: 20px; height: 20px; fill: var(--blanc); }
+        .contact-item strong { display: block; font-size: 0.85rem; color: var(--noir); margin-bottom: 0.2rem; }
+        .contact-item span { color: var(--gris); font-size: 0.95rem; }
+        .contact-item a { color: var(--rouge); font-weight: 500; }
+        .contact-map {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 350px;
+        }
+        .contact-map iframe { width: 100%; height: 100%; min-height: 350px; border: none; }
+
+        /* FOOTER */
+        .footer {
+            background: var(--noir);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+        .footer a { color: var(--jaune); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
+            .header nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem; }
+            .header nav a { margin-left: 0.5rem; font-size: 0.75rem; }
+            .hero { height: 70vh; min-height: 400px; }
+            .hero-content { padding: 1.5rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .about-grid, .equip-grid, .contact-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            section { padding: 3rem 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <img src="img/logo.jpg" alt="TLM Travaux Publics" class="header-logo">
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#equipements">Équipements</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:0475527747" class="tel-btn">04 75 52 77 47</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <h1>Terrassement &<br><span>Travaux Publics</span></h1>
+        <p>TLM Travaux Publics intervient à Viviers et dans toute l'Ardèche pour vos projets de terrassement, VRD, enrobé et viabilisation. Un savoir-faire reconnu et un parc matériel adapté à chaque chantier.</p>
+        <a href="#contact" class="hero-cta">Demander un devis</a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nos prestations</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-2 0H6V4h12v2z"/><path d="M3 18L10 6l3 5 4-3 4 10H3z"/></svg>
+                </div>
+                <h3>Terrassement</h3>
+                <p>Décapage, déblai, remblai, nivellement et préparation de terrain pour tous types de projets de construction.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                </div>
+                <h3>Enrobé & Pavage</h3>
+                <p>Réalisation d'enrobés, goudronnage de chemins et allées, pose de pavés pour habitations et entreprises.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z"/></svg>
+                </div>
+                <h3>VRD</h3>
+                <p>Voirie et réseaux divers : assainissement, adduction d'eau, réseaux secs, chaussées et trottoirs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Viabilisation</h3>
+                <p>Travaux de viabilisation de terrains : raccordements eau, électricité, assainissement et télécoms.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"/></svg>
+                </div>
+                <h3>Débroussaillage</h3>
+                <p>Débroussaillage mécanique de parcelles, défrichage et préparation de zones avant travaux.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 18.5a1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5zM19.5 9.5L21 12h-3V9.5h1.5zM6 18.5A1.5 1.5 0 0 0 7.5 17 1.5 1.5 0 0 0 6 15.5 1.5 1.5 0 0 0 4.5 17 1.5 1.5 0 0 0 6 18.5zM20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2a3 3 0 0 0 6 0h6a3 3 0 0 0 6 0h2V12l-3-4z"/></svg>
+                </div>
+                <h3>Location & Matériaux</h3>
+                <p>Location d'engins de chantier et vente de matériaux : terre, gravier, sable, enrobé.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="img/chantier1.jpg" alt="Chantier TLM — aménagement extérieur terminé">
+            </div>
+            <div class="about-text">
+                <h3>TLM Travaux Publics, votre partenaire terrassement en Ardèche</h3>
+                <p>Implantée à Viviers dans le sud de l'Ardèche, la société TLM Travaux Publics met son expertise au service des particuliers, des collectivités et des professionnels pour tous types de travaux de terrassement et d'aménagement.</p>
+                <p>Notre parc matériel conséquent et régulièrement renouvelé nous permet d'intervenir sur des chantiers de toutes tailles, avec réactivité et professionnalisme.</p>
+                <p>De la préparation de terrain à la finition en enrobé, nous assurons un suivi complet de votre projet.</p>
+                <div class="about-badges">
+                    <img src="img/garantie1.png" alt="Garantie décennale">
+                    <img src="img/garantie2.png" alt="Garantie décennale">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="realisations" id="realisations">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nos réalisations</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="img/chantier1.jpg" alt="Aménagement extérieur — terrassement et chemin" loading="lazy"></div>
+            <div class="gallery-item"><img src="img/chantier6.jpg" alt="Tranchée VRD avec géotextile et gravier" loading="lazy"></div>
+            <div class="gallery-item"><img src="img/chantier8.jpg" alt="Terrassement à la pelle mécanique" loading="lazy"></div>
+            <div class="gallery-item"><img src="img/chantier3.jpg" alt="Chantier de terrassement" loading="lazy"></div>
+            <div class="gallery-item"><img src="img/chantier10.jpg" alt="Travaux de viabilisation" loading="lazy"></div>
+            <div class="gallery-item"><img src="img/chantier11.jpg" alt="Préparation de terrain" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<!-- EQUIPEMENTS -->
+<section class="equipements" id="equipements">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nos équipements</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="equip-grid">
+            <div>
+                <ul class="equip-list" style="list-style: none;">
+                    <li>Pelles mécaniques (mini-pelles à pelles 20T)</li>
+                    <li>Chargeuses sur pneus</li>
+                    <li>Compacteurs vibrants</li>
+                    <li>Camions benne 6x4 et 8x4</li>
+                    <li>Finisseur à enrobé</li>
+                    <li>Brise-roche hydraulique</li>
+                    <li>Matériel de compactage et nivellement</li>
+                    <li>Débroussailleuse mécanique forestière</li>
+                </ul>
+            </div>
+            <div class="about-img">
+                <img src="img/stickers.jpg" alt="Engins TLM — parc matériel" style="border-radius: 8px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contactez-nous</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Demandez votre devis gratuit</h3>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <span><a href="tel:0475527747">04 75 52 77 47</a></span><br>
+                        <span><a href="tel:0610572993">06 10 57 29 93</a></span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div>
+                        <strong>E-mail</strong>
+                        <span><a href="mailto:b.tlm@orange.fr">b.tlm@orange.fr</a></span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div>
+                        <strong>Adresse</strong>
+                        <span>Quartier la Lauze<br>07220 Viviers, Ardèche</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11434.61!2d4.6317!3d44.3874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b50eb10ec4ca35%3A0xb3101866a266e405!2sTLM%20VIVIERS!5e0!3m2!1sfr!2sfr!4v1" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; 2024 SAS TLM Travaux Publics — Viviers (07) | SIRET 800 252 405 00017 | Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
